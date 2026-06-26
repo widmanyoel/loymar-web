@@ -1,0 +1,27 @@
+:root {
+	--color-primary: #6366f1;
+	--color-primary-light: #eef2ff;
+	--color-primary-dark: #4338ca;
+
+	--color-secondary: #10b981;
+
+	--color-success: #10b981;
+	--color-warning: #f59e0b;
+	--color-error: #ef4444;
+
+	--background: #f9fafb;
+	--surface: #ffffff;
+
+	--text-primary: #111827;
+	--text-secondary: #4b5563;
+
+	--radius: 10px;
+}
+
+.dark {
+	--background: #111827;
+	--surface: #1f2937;
+
+	--text-primary: #f9fafb;
+	--text-secondary: #d1d5db;
+}

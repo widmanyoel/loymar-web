@@ -1,0 +1,65 @@
+---
+const fleet = [
+  {
+    name: 'Sedán VIP',
+    passengers: 3,
+    luggage: '2 Maletas',
+    img: 'https://lh3.googleusercontent.com/aida-public/AB6AXuDqRwlOu44v7vDSZ2lVpFPy3VkRndOodeBI_ZoEyqjTDxT00OPOuuDQDDd7mmU-t0AjTB2YdCqtdXkNeEyZinlIIm6EOH1B4RASwvSt0h_qHv1AlSSQRyn36PaucPeZifWCcGorXbfl-SjR17FmZMay74asTcyv3q406XrDI7DmLb7pVhurqsV7Xnc2cRksiSkKYoFciEBumg0cgxuqIzknz23I4ptPdeK1Q40jdDgpvPlV2br-8aUfnpdu3x3ABExt1SUHPJ6EHvvq'
+  },
+  {
+    name: 'Van/Minivan',
+    passengers: 7,
+    luggage: '6 Maletas',
+    img: 'https://lh3.googleusercontent.com/aida-public/AB6AXuBzkXDYjUDQJVhRimvB9J6tctCmak_RemJHsAD4xSItagxeOEGqrq17J_v70lDpBz9f1RyNfT962ce8xbroDchFXDgik52q_wkuBeqNsfYT6BKeXKpv_fiNOqqPNEh77Kn8sP7B4DM63h5cDjT_Il42Gy9h6lU8n5Ra-nfC-OIZgHlXbMUb1858Efi5D67XGLeHTkjWCPuai079jPPLlW7mhtu4IA2NwIfMRFpkd1ciPshJNzgoQxOjojOk3gNwyTiuBuTALIfwitUR'
+  },
+  {
+    name: 'Minibús',
+    passengers: 19,
+    luggage: '15 Maletas',
+    img: 'https://lh3.googleusercontent.com/aida-public/AB6AXuBwN-GGFPw0yCp5HXV6IFU4dBe4SRI5yFeCEi23JI8FLmZOyuhWBzY6ZtJa9ogE72z2pOwdNHhlQJDR6FF3VSiIWQvmQPv7M7j43AaTI0fHuZTFsk5rrn5Pk8sJWI5JzsMA-_xbqRttVQWqwGcrGzOyM07f9z_G05ZXTLkZHuT11sG0Oew-xZ2sdK99O2Vy4u1GjSjUa54CIWfqMpOyaPVri_3HPKOOpGxvskv_pk42D3HWHivxYZ_IseTuqwdK2zmOeEmbiE-JUMuF'
+  },
+  {
+    name: 'Bus Completo',
+    passengers: 45,
+    luggage: 'XL Cargo',
+    img: 'https://lh3.googleusercontent.com/aida-public/AB6AXuCrPtIYFgXT0i0IfThLzGmTKnrI8qKuKwaeiYdlRXoGdQoagjkP3cgp1wvLK-KFmrantawCHLaLT5iJjw8Y30r3HNmzFSDzG8aktbiI9hVHDSYQ4BdC9WQgesjKkBrrEc0BD1gifwmeTmkOBHY5aHe0l3K2A7cUMDa-zdHcOfwiFnZV6g-se-p_PAGEwwg9YPO0rnG_Wz9YOdQ2vdd4ok7AsCLZVx4WfQiTQ-lUsc6MQZxV2O8bmIbzkp_m6fwQR_r8M8eb__8mBCDP'
+  }
+]
+---
+
+<section id="fleet" class="py-24 bg-[#0a0a0a]/50 border-y border-white/5">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="flex flex-col md:flex-row justify-between items-end mb-16 gap-6">
+      <div>
+        <span class="text-[#f4c025] font-bold text-sm tracking-widest uppercase mb-4 block">Nuestra Flota</span>
+        <h2 class="font-serif text-5xl text-white">Elige tu Estilo de Viaje</h2>
+      </div>
+      <p class="max-w-md text-slate-400">Contamos con vehículos de última generación, equipados con WiFi, climatización y asientos de cuero.</p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+      {
+        fleet.map((item) => (
+          <div class="bg-[#161616] p-4 rounded-xl border border-white/5 group">
+            <div class="aspect-video rounded-lg overflow-hidden mb-6">
+              <img
+                src={item.img}
+                alt={item.name}
+                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+              />
+            </div>
+            <h4 class="text-white font-bold text-lg mb-1">{item.name}</h4>
+            <div class="flex items-center gap-4 text-xs text-slate-400">
+              <span class="flex items-center gap-1">
+                <span class="material-symbols-outlined text-[16px]">person</span> {item.passengers} Pasajeros
+              </span>
+              <span class="flex items-center gap-1">
+                <span class="material-symbols-outlined text-[16px]">luggage</span> {item.luggage}
+              </span>
+            </div>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>

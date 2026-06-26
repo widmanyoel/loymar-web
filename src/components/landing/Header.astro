@@ -1,0 +1,42 @@
+<header
+  id="header"
+  class="fixed top-0 left-0 w-full z-50 bg-transparent transition-all duration-300"
+>
+  <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+    <div class="flex items-center gap-3">
+      <span class="material-symbols-outlined text-[#f4c025] text-3xl">airport_shuttle</span>
+      <h2 class="font-serif text-2xl font-bold tracking-tight text-white">
+        Loymar <span class="text-[#f4c025]">Transport</span>
+      </h2>
+    </div>
+    <nav class="hidden md:flex items-center gap-10">
+      <a href="#services" class="text-sm font-medium hover:text-[#f4c025] transition-colors uppercase tracking-widest">Servicios</a>
+      <a href="#fleet" class="text-sm font-medium hover:text-[#f4c025] transition-colors uppercase tracking-widest">Flota</a>
+      <a href="#about" class="text-sm font-medium hover:text-[#f4c025] transition-colors uppercase tracking-widest">Nosotros</a>
+      <a href="/login" class="bg-[#f4c025] hover:bg-[#f4c025]/90 text-[#0a0a0a] px-6 py-2.5 rounded-lg font-bold text-sm transition-all transform hover:scale-105">
+        RESERVAR AHORA
+      </a>
+    </nav>
+    <div class="md:hidden">
+      <span class="material-symbols-outlined text-[#f4c025]">menu</span>
+    </div>
+  </div>
+</header>
+<script>
+	const header = document.getElementById('header');
+
+	if (!header) {
+		throw new Error('No se encontró el elemento #header');
+	}
+
+	const updateHeader = () => {
+		const scrolled = window.scrollY > 20;
+
+		header.classList.toggle('bg-black/90', scrolled);
+		header.classList.toggle('backdrop-blur-xl', scrolled);
+		header.classList.toggle('shadow-lg', scrolled);
+	};
+
+	updateHeader();
+	window.addEventListener('scroll', updateHeader);
+</script>
