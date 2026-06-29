@@ -1,24 +1,26 @@
 ---
 import BaseLayout from '../components/base/BaseLayout.astro';
-import Header from '../components/landing/Header.astro';
 import Hero from '../components/landing/Hero.astro';
 import Marquee from '../components/landing/Marquee.astro';
-import BookingForm from '../components/landing/BookingForm.astro';
 import Services from '../components/landing/Services.astro';
 import Fleet from '../components/landing/Fleet.astro';
 import Cta from '../components/landing/Cta.astro';
 import Footer from '../components/landing/Footer.astro';
+import BookingForm from '@/features/landing/BookingForm';
+import WhatsappFloat from '@/components/landing/WhatsappFloat.astro';
+import Header from '@/features/landing/Header';
 ---
 
 <BaseLayout>
-  <Header />
+	<Header client:idle />
   <main>
     <Hero />
     <Marquee />
-    <BookingForm />
+		<BookingForm client:load />
     <Services />
     <Fleet />
     <Cta />
   </main>
   <Footer />
+	<WhatsappFloat />
 </BaseLayout>
