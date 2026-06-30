@@ -14,11 +14,27 @@ export default function BookingForm() {
   ) => {
     setForm({
       ...form,
-      [e.target.name]: e.target.value,
+      [e.target.name]:
+        e.target.name === "passengers"
+          ? Number(e.target.value)
+          : e.target.value,
     });
   };
 
-  const handleSubmit = () => {
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+
+    // Validación
+    if (
+      !form.origin.trim() ||
+      !form.destination.trim() ||
+      !form.date ||
+      form.passengers < 1
+    ) {
+      alert("Por favor complete todos los campos para solicitar una cotización.");
+      return;
+    }
+
     const phone = "51915060725";
 
     const message = `🚖 *Nueva Cotización*
@@ -36,7 +52,7 @@ export default function BookingForm() {
   };
 
   return (
-    <section className="max-w-7xl mx-auto px-6 -mt-0 relative z-30">
+    <section className="max-w-7xl mx-auto px-6 relative z-30">
       <div className="bg-[#161616] border border-[#f4c025]/20 rounded-xl p-8 shadow-2xl">
         <div className="flex items-center gap-2 mb-6">
           <span className="material-symbols-outlined text-[#f4c025]">
@@ -48,7 +64,10 @@ export default function BookingForm() {
           </h3>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-6 gap-4">
+        <form
+          onSubmit={handleSubmit}
+          className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-6 gap-4"
+        >
           <div className="space-y-2">
             <label className="text-[10px] uppercase tracking-tighter text-slate-400 font-bold">
               Servicio
@@ -75,6 +94,7 @@ export default function BookingForm() {
               type="number"
               name="passengers"
               min={1}
+              required
               value={form.passengers}
               onChange={handleChange}
               className="w-full bg-[#0a0a0a] border border-slate-700 rounded-lg text-sm px-3 py-2.5 focus:border-[#f4c025] text-white"
@@ -89,6 +109,7 @@ export default function BookingForm() {
             <input
               type="text"
               name="origin"
+              required
               value={form.origin}
               onChange={handleChange}
               placeholder="Punto de recogida"
@@ -104,6 +125,7 @@ export default function BookingForm() {
             <input
               type="text"
               name="destination"
+              required
               value={form.destination}
               onChange={handleChange}
               placeholder="¿A dónde vas?"
@@ -119,6 +141,7 @@ export default function BookingForm() {
             <input
               type="date"
               name="date"
+              required
               value={form.date}
               onChange={handleChange}
               className="w-full bg-[#0a0a0a] border border-slate-700 rounded-lg text-sm px-3 py-2.5 focus:border-[#f4c025] text-white"
@@ -127,13 +150,13 @@ export default function BookingForm() {
 
           <div className="flex items-end">
             <button
-              onClick={handleSubmit}
+              type="submit"
               className="w-full bg-[#f4c025] text-[#0a0a0a] font-bold py-2.5 rounded-lg hover:brightness-110 transition-all uppercase text-xs tracking-wider"
             >
               Cotizar
             </button>
           </div>
-        </div>
+        </form>
       </div>
     </section>
   );
