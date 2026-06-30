@@ -13,6 +13,31 @@ export default function BookingForm() {
 		date: null as Date | null,
 	});
 
+	const [errors, setErrors] = useState({
+		origin: "",
+		destination: "",
+		date: "",
+		passengers: "",
+	});
+
+	const validate = () => {
+		const newErrors = {
+			origin: "",
+			destination: "",
+			date: "",
+			passengers: "",
+		};
+
+		if (!form.origin.trim()) newErrors.origin = "Ingresa el punto de recogida";
+		if (!form.destination.trim()) newErrors.destination = "Ingresa el destino";
+		if (!form.date) newErrors.date = "Selecciona una fecha";
+		if (form.passengers < 1) newErrors.passengers = "Mínimo 1 pasajero";
+
+		setErrors(newErrors);
+
+		return Object.values(newErrors).every((e) => e === "");
+	};
+
 	const handleChange = (
 		e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
 	) => {
@@ -28,27 +53,18 @@ export default function BookingForm() {
 	const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
 		e.preventDefault();
 
-		if (
-			!form.origin.trim() ||
-			!form.destination.trim() ||
-			!form.date ||
-			form.passengers < 1
-		) {
-			alert("Por favor complete todos los campos para solicitar una cotización.");
-			return;
-		}
+		if (!validate()) return;
 
 		const phone = "51915060725";
-
-		const formattedDate = form.date.toLocaleDateString("es-PE");
+		const formattedDate = form.date!.toLocaleDateString("es-PE");
 
 		const message = `*Nueva Cotización*
 
-		Servicio: ${form.service}
-	  Pasajeros: ${form.passengers}
- 		Origen: ${form.origin}
- 		Destino: ${form.destination}
- 		Fecha: ${formattedDate}`;
+Servicio: ${form.service}
+Pasajeros: ${form.passengers}
+Origen: ${form.origin}
+Destino: ${form.destination}
+Fecha: ${formattedDate}`;
 
 		window.open(
 			`https://wa.me/${phone}?text=${encodeURIComponent(message)}`,
@@ -56,25 +72,21 @@ export default function BookingForm() {
 		);
 	};
 
+	// 🔥 BLOQUE UNIFICADO (IMPORTANTE PARA ALINEACIÓN)
+	const fieldBox =
+		"flex flex-col gap-2 min-h-[92px] justify-end";
+
 	return (
 		<section className="max-w-7xl mx-auto px-6 relative z-30">
 			<div className="bg-[#161616] border border-[#f4c025]/20 rounded-xl p-8 shadow-2xl">
-				<div className="flex items-center gap-2 mb-6">
-					<span className="material-symbols-outlined text-[#f4c025]">
-						calendar_month
-					</span>
-
-					<h3 className="font-serif text-2xl text-white">
-						Reserva tu Viaje
-					</h3>
-				</div>
 
 				<form
 					onSubmit={handleSubmit}
 					className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-6 gap-4"
 				>
-					{/* Servicio */}
-					<div className="space-y-2">
+
+					{/* SERVICIO */}
+					<div className={fieldBox}>
 						<label className="text-[10px] uppercase text-slate-400 font-bold">
 							Servicio
 						</label>
@@ -91,8 +103,8 @@ export default function BookingForm() {
 						</select>
 					</div>
 
-					{/* Pasajeros */}
-					<div className="space-y-2">
+					{/* PASAJEROS */}
+					<div className={fieldBox}>
 						<label className="text-[10px] uppercase text-slate-400 font-bold">
 							Pasajeros
 						</label>
@@ -105,10 +117,14 @@ export default function BookingForm() {
 							onChange={handleChange}
 							className="w-full bg-[#0a0a0a] border border-slate-700 rounded-lg text-sm px-3 py-2.5 text-white"
 						/>
+
+						{errors.passengers && (
+							<p className="text-red-500 text-xs">{errors.passengers}</p>
+						)}
 					</div>
 
-					{/* Origen */}
-					<div className="space-y-2">
+					{/* ORIGEN */}
+					<div className={fieldBox}>
 						<label className="text-[10px] uppercase text-slate-400 font-bold">
 							Origen
 						</label>
@@ -121,10 +137,14 @@ export default function BookingForm() {
 							placeholder="Punto de recogida"
 							className="w-full bg-[#0a0a0a] border border-slate-700 rounded-lg text-sm px-3 py-2.5 text-white"
 						/>
+
+						{errors.origin && (
+							<p className="text-red-500 text-xs">{errors.origin}</p>
+						)}
 					</div>
 
-					{/* Destino */}
-					<div className="space-y-2">
+					{/* DESTINO */}
+					<div className={fieldBox}>
 						<label className="text-[10px] uppercase text-slate-400 font-bold">
 							Destino
 						</label>
@@ -137,26 +157,37 @@ export default function BookingForm() {
 							placeholder="¿A dónde vas?"
 							className="w-full bg-[#0a0a0a] border border-slate-700 rounded-lg text-sm px-3 py-2.5 text-white"
 						/>
+
+						{errors.destination && (
+							<p className="text-red-500 text-xs">{errors.destination}</p>
+						)}
 					</div>
 
-					{/* FECHA EN ESPAÑOL */}
-					<div className="space-y-2">
+					{/* FECHA */}
+					<div className={fieldBox}>
 						<label className="text-[10px] uppercase text-slate-400 font-bold">
 							Fecha
 						</label>
 
 						<DatePicker
 							selected={form.date}
-							onChange={(date: any) => setForm({ ...form, date })}
+							onChange={(date: any) => {
+								setForm({ ...form, date });
+								setErrors({ ...errors, date: "" });
+							}}
 							locale={es}
 							dateFormat="dd/MM/yyyy"
 							placeholderText="Selecciona una fecha"
 							className="w-full bg-[#0a0a0a] border border-slate-700 rounded-lg text-sm px-3 py-2.5 text-white"
 						/>
+
+						{errors.date && (
+							<p className="text-red-500 text-xs">{errors.date}</p>
+						)}
 					</div>
 
-					{/* Botón */}
-					<div className="flex items-end">
+					{/* BOTÓN PERFECTAMENTE ALINEADO */}
+					<div className={fieldBox}>
 						<button
 							type="submit"
 							className="w-full bg-[#f4c025] text-[#0a0a0a] font-bold py-2.5 rounded-lg uppercase text-xs"
@@ -164,6 +195,7 @@ export default function BookingForm() {
 							Cotizar
 						</button>
 					</div>
+
 				</form>
 			</div>
 		</section>
