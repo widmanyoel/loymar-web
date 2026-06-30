@@ -1,11 +1,11 @@
 import { useEffect, useState } from "react";
+import { SITE } from "@/config/site";
 
 export default function Header() {
 	const [scrolled, setScrolled] = useState(false);
 	const [open, setOpen] = useState(false);
 
-	const phone = '+51915060725'
-	const whatsappUrl = `https://wa.me/${phone}`
+	const whatsappUrl = `https://wa.me/${SITE.whatsapp}`;
 
 	useEffect(() => {
 		const onScroll = () => {
@@ -68,7 +68,7 @@ export default function Header() {
 						</a>
 
 						<a
-							href="/usAbout"
+							href="/about"
 							className="text-sm font-medium uppercase tracking-widest hover:text-[#f4c025] transition-colors"
 						>
 							Nosotros
@@ -149,7 +149,7 @@ export default function Header() {
 					</a>
 
 					<a
-						href="/usAbout"
+						href="/about"
 						onClick={closeDrawer}
 						className="text-lg text-white hover:text-[#f4c025] transition"
 					>

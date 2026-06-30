@@ -1,5 +1,7 @@
 ---
-const phone = '+51915060725'
+import { SITE } from "@/config/site";
+
+const phone = SITE.whatsapp;
 const message = 'Hola, deseo información sobre sus servicios de transporte.'
 
 const whatsappUrl = `https://wa.me/${phone}?text=${encodeURIComponent(message)}`
