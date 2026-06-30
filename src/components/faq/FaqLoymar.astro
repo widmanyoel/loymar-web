@@ -1,0 +1,115 @@
+---
+const faqs = [
+  {
+    question: "¿Qué servicios ofrece Loymar Perú?",
+    answer:
+      "Brindamos servicio de taxi ejecutivo, transporte corporativo, traslados al aeropuerto, movilidad para personal, transporte para eventos y soluciones personalizadas para empresas y particulares."
+  },
+  {
+    question: "¿El servicio está disponible las 24 horas?",
+    answer:
+      "Sí. Contamos con atención y servicio las 24 horas del día, los 7 días de la semana, sujeto a disponibilidad en la zona de atención."
+  },
+  {
+    question: "¿Cómo puedo realizar una reserva?",
+    answer:
+      "Puedes comunicarte con nosotros mediante WhatsApp, llamada telefónica o a través del formulario de contacto disponible en nuestro sitio web."
+  },
+  {
+    question: "¿Los conductores están capacitados?",
+    answer:
+      "Sí. Nuestro equipo de conductores cuenta con experiencia, documentación vigente y capacitación permanente para brindar un servicio seguro y profesional."
+  },
+  {
+    question: "¿Qué medidas de seguridad ofrecen?",
+    answer:
+      "Nuestras unidades reciben mantenimiento preventivo, cumplen con la normativa vigente y nuestros conductores siguen protocolos orientados a garantizar un viaje seguro y confiable."
+  },
+  {
+    question: "¿Ofrecen servicio para empresas?",
+    answer:
+      "Sí. Disponemos de planes de transporte corporativo adaptados a las necesidades de empresas, instituciones y organizaciones, con atención personalizada."
+  }
+];
+---
+
+<section class="relative overflow-hidden bg-slate-950 py-24">
+
+  <!-- Fondo -->
+  <div class="absolute inset-0">
+    <div class="absolute -top-32 left-0 h-80 w-80 rounded-full bg-blue-600/10 blur-3xl"></div>
+    <div class="absolute bottom-0 right-0 h-80 w-80 rounded-full bg-cyan-500/10 blur-3xl"></div>
+  </div>
+
+  <div class="relative mx-auto max-w-4xl px-6">
+
+    <div class="text-center">
+
+      <span class="inline-flex rounded-full border border-blue-500/30 bg-blue-500/10 px-4 py-2 text-sm font-semibold tracking-wide text-blue-400">
+        PREGUNTAS FRECUENTES
+      </span>
+
+      <h2 class="mt-6 text-4xl font-bold text-white md:text-5xl">
+        Resolvemos tus dudas
+      </h2>
+
+      <div class="mx-auto mt-5 h-1 w-24 rounded-full bg-gradient-to-r from-blue-500 to-cyan-400"></div>
+
+      <p class="mx-auto mt-8 max-w-2xl text-lg leading-8 text-slate-300">
+        Encuentra respuestas a las consultas más comunes sobre nuestros servicios
+        de transporte y conoce por qué cientos de clientes confían en
+        <span class="font-semibold text-white">Loymar Perú</span>.
+      </p>
+
+    </div>
+
+    <div class="mt-16 space-y-5">
+
+      {
+        faqs.map((faq) => (
+          <details class="group rounded-2xl border border-slate-800 bg-slate-900/70 transition-all duration-300 hover:border-blue-500">
+
+            <summary class="flex cursor-pointer list-none items-center justify-between p-6">
+
+              <h3 class="pr-6 text-lg font-semibold text-white">
+                {faq.question}
+              </h3>
+
+              <div class="flex h-10 w-10 items-center justify-center rounded-full bg-blue-500/10 text-blue-400 transition-transform duration-300 group-open:rotate-45">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="h-5 w-5"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  stroke-width="2">
+
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M12 5v14m-7-7h14" />
+
+                </svg>
+              </div>
+
+            </summary>
+
+            <div class="px-6 pb-6">
+
+              <div class="h-px bg-slate-800"></div>
+
+              <p class="pt-6 leading-8 text-slate-400">
+                {faq.answer}
+              </p>
+
+            </div>
+
+          </details>
+        ))
+      }
+
+    </div>
+
+  </div>
+
+</section>

@@ -1,0 +1,14 @@
+---
+import BaseLayout from "../components/base/BaseLayout.astro";
+import Header from "@/features/landing/Header";
+import Footer from "@/components/landing/Footer.astro";
+import FaqLoymar from "@/components/faq/FaqLoymar.astro";
+---
+
+<BaseLayout>
+  <Header client:idle />
+  <main class="pt-20">
+    <FaqLoymar />
+  </main>
+  <Footer />
+</BaseLayout>

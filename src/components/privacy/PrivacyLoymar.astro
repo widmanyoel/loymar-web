@@ -1,0 +1,369 @@
+---
+const sections = [
+  {
+    id: "introduccion",
+    title: "1. Introducción"
+  },
+  {
+    id: "informacion",
+    title: "2. Información que recopilamos"
+  },
+  {
+    id: "uso",
+    title: "3. Uso de la información"
+  },
+  {
+    id: "proteccion",
+    title: "4. Protección de los datos"
+  },
+  {
+    id: "terceros",
+    title: "5. Compartición de información"
+  },
+  {
+    id: "cookies",
+    title: "6. Cookies"
+  },
+  {
+    id: "derechos",
+    title: "7. Derechos del usuario"
+  },
+  {
+    id: "conservacion",
+    title: "8. Conservación de datos"
+  },
+  {
+    id: "cambios",
+    title: "9. Cambios en esta política"
+  },
+  {
+    id: "contacto",
+    title: "10. Contacto"
+  }
+];
+---
+
+<section class="relative overflow-hidden bg-slate-950">
+
+  <!-- Background -->
+  <div class="absolute inset-0">
+    <div class="absolute -top-44 left-0 h-96 w-96 rounded-full bg-yellow-400/10 blur-3xl"></div>
+    <div class="absolute bottom-0 right-0 h-96 w-96 rounded-full bg-blue-500/10 blur-3xl"></div>
+  </div>
+
+  <!-- Hero -->
+  <div class="relative border-b border-white/10">
+
+    <div class="mx-auto max-w-7xl px-6 py-28 lg:px-8">
+
+      <span class="inline-flex rounded-full border border-yellow-400/20 bg-yellow-400/10 px-4 py-2 text-sm font-semibold text-yellow-400">
+        Documento Informativo
+      </span>
+
+      <h1 class="mt-6 text-5xl font-black tracking-tight text-white md:text-6xl">
+        Política de Privacidad
+      </h1>
+
+      <p class="mt-8 max-w-3xl text-lg leading-8 text-slate-300">
+        En <strong class="text-white">Loymar Perú</strong> valoramos la privacidad
+        de nuestros usuarios y clientes. Este documento es un ejemplo de política
+        de privacidad con fines demostrativos para un sitio web corporativo de
+        servicios de transporte.
+      </p>
+
+      <div class="mt-8 flex flex-wrap gap-4 text-sm">
+
+        <div class="rounded-full border border-white/10 bg-slate-900 px-4 py-2 text-slate-300">
+          Última actualización: Junio 2026
+        </div>
+
+        <div class="rounded-full border border-white/10 bg-slate-900 px-4 py-2 text-slate-300">
+          Versión 1.0
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+  <!-- Content -->
+
+  <div class="relative mx-auto grid max-w-7xl gap-12 px-6 py-20 lg:grid-cols-4 lg:px-8">
+
+    <!-- Sidebar -->
+
+    <aside class="lg:col-span-1">
+
+      <div class="sticky top-28 rounded-3xl border border-white/10 bg-slate-900/70 p-6">
+
+        <h3 class="text-lg font-bold text-white">
+          Contenido
+        </h3>
+
+        <nav class="mt-6 space-y-3">
+
+          {
+            sections.map(section => (
+              <a
+                href={`#${section.id}`}
+                class="block rounded-lg px-3 py-2 text-sm text-slate-400 transition hover:bg-white/5 hover:text-yellow-400">
+
+                {section.title}
+
+              </a>
+            ))
+          }
+
+        </nav>
+
+      </div>
+
+    </aside>
+
+    <!-- Main -->
+
+    <article class="lg:col-span-3">
+
+      <div class="space-y-8">
+
+        <section
+          id="introduccion"
+          class="rounded-3xl border border-white/10 bg-slate-900/70 p-8">
+
+          <h2 class="text-3xl font-bold text-white">
+            1. Introducción
+          </h2>
+
+          <p class="mt-6 leading-8 text-slate-300">
+            Loymar Perú respeta la privacidad de las personas que utilizan
+            nuestro sitio web. La presente Política describe, de manera
+            referencial, cómo podría recopilarse, utilizarse y protegerse la
+            información proporcionada por los visitantes del sitio.
+          </p>
+
+          <p class="mt-5 leading-8 text-slate-300">
+            Al navegar por este sitio web, el usuario acepta las condiciones
+            descritas en esta política de privacidad de ejemplo.
+          </p>
+
+        </section>
+
+        <section
+          id="informacion"
+          class="rounded-3xl border border-white/10 bg-slate-900/70 p-8">
+
+          <h2 class="text-3xl font-bold text-white">
+            2. Información que recopilamos
+          </h2>
+
+          <p class="mt-6 text-slate-300 leading-8">
+            Dependiendo de los servicios utilizados, podríamos recopilar:
+          </p>
+
+          <ul class="mt-6 space-y-4 text-slate-300">
+
+            <li>• Nombre y apellidos.</li>
+
+            <li>• Número telefónico.</li>
+
+            <li>• Dirección de correo electrónico.</li>
+
+            <li>• Dirección de origen y destino del servicio.</li>
+
+            <li>• Fecha y hora de una reserva.</li>
+
+            <li>• Información enviada mediante formularios.</li>
+
+            <li>• Datos técnicos del navegador y dispositivo.</li>
+
+          </ul>
+
+        </section>
+
+        <section
+          id="uso"
+          class="rounded-3xl border border-white/10 bg-slate-900/70 p-8">
+
+          <h2 class="text-3xl font-bold text-white">
+            3. Uso de la información
+          </h2>
+
+          <p class="mt-6 text-slate-300 leading-8">
+            La información recopilada puede utilizarse para:
+          </p>
+
+          <div class="mt-8 grid gap-5 md:grid-cols-2">
+
+            <div class="rounded-2xl border border-white/10 bg-slate-950/50 p-5">
+
+              <h4 class="font-semibold text-white">
+                Atención al cliente
+              </h4>
+
+              <p class="mt-3 text-slate-400">
+                Gestionar consultas y solicitudes realizadas por los usuarios.
+              </p>
+
+            </div>
+
+            <div class="rounded-2xl border border-white/10 bg-slate-950/50 p-5">
+
+              <h4 class="font-semibold text-white">
+                Reservas
+              </h4>
+
+              <p class="mt-3 text-slate-400">
+                Coordinar servicios de transporte solicitados.
+              </p>
+
+            </div>
+
+            <div class="rounded-2xl border border-white/10 bg-slate-950/50 p-5">
+
+              <h4 class="font-semibold text-white">
+                Comunicación
+              </h4>
+
+              <p class="mt-3 text-slate-400">
+                Informar cambios relacionados con el servicio solicitado.
+              </p>
+
+            </div>
+
+            <div class="rounded-2xl border border-white/10 bg-slate-950/50 p-5">
+
+              <h4 class="font-semibold text-white">
+                Mejora del sitio
+              </h4>
+
+              <p class="mt-3 text-slate-400">
+                Analizar estadísticas para mejorar la experiencia del usuario.
+              </p>
+
+            </div>
+
+          </div>
+
+        </section>
+
+        <section
+          id="proteccion"
+          class="rounded-3xl border border-white/10 bg-slate-900/70 p-8">
+
+          <h2 class="text-3xl font-bold text-white">
+            4. Protección de los datos
+          </h2>
+
+          <p class="mt-6 leading-8 text-slate-300">
+            Implementamos medidas técnicas y organizativas destinadas a reducir
+            el riesgo de accesos no autorizados, pérdida de información o uso
+            indebido de los datos proporcionados por los usuarios.
+          </p>
+
+        </section>
+
+        <section
+          id="terceros"
+          class="rounded-3xl border border-white/10 bg-slate-900/70 p-8">
+
+          <h2 class="text-3xl font-bold text-white">
+            5. Compartición de información
+          </h2>
+
+          <p class="mt-6 leading-8 text-slate-300">
+            Como política general, la información personal no se comercializa ni
+            se comparte con terceros, salvo cuando sea necesario para prestar un
+            servicio solicitado o exista una obligación legal aplicable.
+          </p>
+
+        </section>
+
+        <section
+          id="cookies"
+          class="rounded-3xl border border-white/10 bg-slate-900/70 p-8">
+
+          <h2 class="text-3xl font-bold text-white">
+            6. Cookies
+          </h2>
+
+          <p class="mt-6 leading-8 text-slate-300">
+            Este sitio puede utilizar cookies para mejorar la navegación,
+            recordar preferencias del usuario y obtener estadísticas de uso del
+            sitio web.
+          </p>
+
+        </section>
+
+        <section
+          id="derechos"
+          class="rounded-3xl border border-white/10 bg-slate-900/70 p-8">
+
+          <h2 class="text-3xl font-bold text-white">
+            7. Derechos del usuario
+          </h2>
+
+          <p class="mt-6 leading-8 text-slate-300">
+            Los usuarios pueden solicitar información sobre sus datos personales,
+            así como ejercer los derechos de acceso, actualización, rectificación
+            o eliminación, conforme a la legislación aplicable.
+          </p>
+
+        </section>
+
+        <section
+          id="conservacion"
+          class="rounded-3xl border border-white/10 bg-slate-900/70 p-8">
+
+          <h2 class="text-3xl font-bold text-white">
+            8. Conservación de datos
+          </h2>
+
+          <p class="mt-6 leading-8 text-slate-300">
+            La información será conservada únicamente durante el tiempo
+            razonablemente necesario para cumplir con la finalidad para la que
+            fue recopilada o mientras exista una obligación legal que así lo
+            requiera.
+          </p>
+
+        </section>
+
+        <section
+          id="cambios"
+          class="rounded-3xl border border-white/10 bg-slate-900/70 p-8">
+
+          <h2 class="text-3xl font-bold text-white">
+            9. Cambios en esta política
+          </h2>
+
+          <p class="mt-6 leading-8 text-slate-300">
+            Loymar Perú podrá actualizar este documento cuando resulte necesario.
+            Las modificaciones serán publicadas en esta misma página junto con la
+            fecha de su última actualización.
+          </p>
+
+        </section>
+
+        <section
+          id="contacto"
+          class="rounded-3xl border border-yellow-400/20 bg-yellow-400/5 p-8">
+
+          <h2 class="text-3xl font-bold text-white">
+            10. Contacto
+          </h2>
+
+          <p class="mt-6 leading-8 text-slate-300">
+            Si tienes consultas relacionadas con esta Política de Privacidad,
+            puedes comunicarte con Loymar Perú mediante los canales oficiales
+            publicados en este sitio web.
+          </p>
+
+        </section>
+
+      </div>
+
+    </article>
+
+  </div>
+
+</section>

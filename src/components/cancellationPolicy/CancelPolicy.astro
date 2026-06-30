@@ -1,0 +1,254 @@
+---
+const sections = [
+  {
+    id: "objetivo",
+    title: "Objetivo"
+  },
+  {
+    id: "cancelacion",
+    title: "Cancelación de reservas"
+  },
+  {
+    id: "modificacion",
+    title: "Modificación de reservas"
+  },
+  {
+    id: "retrasos",
+    title: "Retrasos del pasajero"
+  },
+  {
+    id: "empresa",
+    title: "Cancelaciones por la empresa"
+  },
+  {
+    id: "reembolsos",
+    title: "Reembolsos"
+  },
+  {
+    id: "contacto",
+    title: "Contacto"
+  }
+];
+---
+
+<section class="relative overflow-hidden bg-slate-950">
+
+    <!-- Background -->
+
+    <div class="absolute inset-0">
+
+        <div class="absolute -top-40 left-0 h-96 w-96 rounded-full bg-yellow-400/10 blur-3xl"></div>
+
+        <div class="absolute bottom-0 right-0 h-96 w-96 rounded-full bg-blue-500/10 blur-3xl"></div>
+
+    </div>
+
+    <!-- Hero -->
+
+    <div class="relative border-b border-white/10">
+
+        <div class="mx-auto max-w-7xl px-6 py-28 lg:px-8">
+
+            <span class="inline-flex rounded-full border border-yellow-400/20 bg-yellow-400/10 px-4 py-2 text-sm font-semibold text-yellow-400">
+                Información para nuestros clientes
+            </span>
+
+            <h1 class="mt-6 text-5xl font-black tracking-tight text-white md:text-6xl">
+                Política de Cancelación
+            </h1>
+
+            <p class="mt-8 max-w-3xl text-lg leading-8 text-slate-300">
+                En <strong class="text-white">Loymar Perú</strong> buscamos ofrecer
+                un servicio eficiente y organizado. Esta política tiene como
+                finalidad establecer las condiciones generales aplicables a las
+                cancelaciones y modificaciones de reservas realizadas por
+                nuestros clientes.
+            </p>
+
+        </div>
+
+    </div>
+
+    <!-- Content -->
+
+    <div class="relative mx-auto grid max-w-7xl gap-12 px-6 py-20 lg:grid-cols-4 lg:px-8">
+
+        <!-- Sidebar -->
+
+        <aside class="lg:col-span-1">
+
+            <div class="sticky top-28 rounded-3xl border border-white/10 bg-slate-900/70 p-6">
+
+                <h3 class="text-lg font-bold text-white">
+                    Contenido
+                </h3>
+
+                <nav class="mt-6 space-y-3">
+
+                    {
+                        sections.map(section => (
+                            <a
+                                href={`#${section.id}`}
+                                class="block rounded-lg px-3 py-2 text-sm text-slate-400 transition hover:bg-white/5 hover:text-yellow-400">
+
+                                {section.title}
+
+                            </a>
+                        ))
+                    }
+
+                </nav>
+
+            </div>
+
+        </aside>
+
+        <!-- Main -->
+
+        <article class="space-y-8 lg:col-span-3">
+
+            <section
+                id="objetivo"
+                class="rounded-3xl border border-white/10 bg-slate-900/70 p-8">
+
+                <h2 class="text-3xl font-bold text-white">
+                    Objetivo
+                </h2>
+
+                <p class="mt-6 leading-8 text-slate-300">
+                    Esta política establece las condiciones generales para la
+                    cancelación, modificación y reprogramación de los servicios
+                    ofrecidos por Loymar Perú, promoviendo una adecuada
+                    planificación y una atención eficiente para todos nuestros
+                    clientes.
+                </p>
+
+            </section>
+
+            <section
+                id="cancelacion"
+                class="rounded-3xl border border-white/10 bg-slate-900/70 p-8">
+
+                <h2 class="text-3xl font-bold text-white">
+                    Cancelación de reservas
+                </h2>
+
+                <p class="mt-6 leading-8 text-slate-300">
+                    Las solicitudes de cancelación podrán realizarse antes del
+                    horario programado del servicio utilizando los canales
+                    oficiales de atención de Loymar Perú.
+                </p>
+
+                <div class="mt-8 rounded-2xl border border-yellow-400/20 bg-yellow-400/10 p-6">
+
+                    <h3 class="font-semibold text-yellow-400">
+                        Recomendación
+                    </h3>
+
+                    <p class="mt-3 text-slate-300">
+                        Siempre recomendamos comunicar cualquier cancelación con
+                        la mayor anticipación posible para facilitar la
+                        reorganización del servicio.
+                    </p>
+
+                </div>
+
+            </section>
+
+            <section
+                id="modificacion"
+                class="rounded-3xl border border-white/10 bg-slate-900/70 p-8">
+
+                <h2 class="text-3xl font-bold text-white">
+                    Modificación de reservas
+                </h2>
+
+                <p class="mt-6 leading-8 text-slate-300">
+                    Los cambios relacionados con fecha, hora, punto de recojo o
+                    destino estarán sujetos a disponibilidad operativa y podrán
+                    ser coordinados antes del inicio del servicio.
+                </p>
+
+            </section>
+
+            <section
+                id="retrasos"
+                class="rounded-3xl border border-white/10 bg-slate-900/70 p-8">
+
+                <h2 class="text-3xl font-bold text-white">
+                    Retrasos del pasajero
+                </h2>
+
+                <p class="mt-6 leading-8 text-slate-300">
+                    En caso de retraso del pasajero, el conductor podrá esperar
+                    un tiempo razonable dependiendo del tipo de servicio
+                    contratado y de las condiciones operativas del momento.
+                </p>
+
+                <p class="mt-5 leading-8 text-slate-300">
+                    Si no es posible realizar el servicio debido a la ausencia
+                    del pasajero, la reserva podrá considerarse cancelada.
+                </p>
+
+            </section>
+
+            <section
+                id="empresa"
+                class="rounded-3xl border border-white/10 bg-slate-900/70 p-8">
+
+                <h2 class="text-3xl font-bold text-white">
+                    Cancelaciones por parte de Loymar Perú
+                </h2>
+
+                <p class="mt-6 leading-8 text-slate-300">
+                    En situaciones excepcionales como condiciones climáticas,
+                    problemas mecánicos, eventos de fuerza mayor o circunstancias
+                    fuera de nuestro control, el servicio podrá ser reprogramado
+                    o cancelado informando oportunamente al cliente.
+                </p>
+
+            </section>
+
+            <section
+                id="reembolsos"
+                class="rounded-3xl border border-white/10 bg-slate-900/70 p-8">
+
+                <h2 class="text-3xl font-bold text-white">
+                    Reembolsos
+                </h2>
+
+                <p class="mt-6 leading-8 text-slate-300">
+                    Cuando corresponda, cualquier devolución será evaluada de
+                    acuerdo con las condiciones particulares del servicio
+                    contratado y la normativa aplicable.
+                </p>
+
+                <p class="mt-5 leading-8 text-slate-300">
+                    Los tiempos de procesamiento podrán variar según el método
+                    de pago utilizado.
+                </p>
+
+            </section>
+
+            <section
+                id="contacto"
+                class="rounded-3xl border border-yellow-400/20 bg-yellow-400/5 p-8">
+
+                <h2 class="text-3xl font-bold text-white">
+                    Contacto
+                </h2>
+
+                <p class="mt-6 leading-8 text-slate-300">
+                    Para consultas relacionadas con cancelaciones,
+                    reprogramaciones o cualquier otra información sobre nuestros
+                    servicios, puedes comunicarte con Loymar Perú mediante los
+                    canales oficiales publicados en este sitio web.
+                </p>
+
+            </section>
+
+        </article>
+
+    </div>
+
+</section>
